@@ -1,0 +1,16 @@
+{
+  "name": "crm",
+  "version": "0.0.1",
+  "main": "crm.html",
+  "dependencies": {
+    "requirejs": null,
+    "angular": null,
+    "persistence": null,
+    "angular-bootstrap": "~0.3.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}
