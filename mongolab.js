@@ -1,6 +1,3 @@
-console.log('module ngresource');
-
-
 angular.module('project_db', ['ngResource']).
     factory('Customer', function($resource) {
       var Customer = $resource('https://api.mongolab.com/api/1/databases' +

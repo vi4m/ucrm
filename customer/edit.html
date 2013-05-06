@@ -1,0 +1,28 @@
+<form ng-submit="submit()" name="addCustomerForm" ng-controller="AddCustomerCtrl">
+	<legend>Edit Customer</legend>
+	<span class="error" ng-show="addCustomerForm.input.$error.required"> Required </span><br>
+	<form-input required 
+		model="customer.name" 
+		label="First name" 
+		form-id="nameInput" 
+		type="text" > 
+	</form-input>	
+	<form-input 
+		required 
+		model="customer.surname" 
+		label="Last name" 
+		form-id="nameInput" 
+		type="text" > 
+	</form-input>	
+	<form-input 
+		model="customer.nip" 
+		label="NIP" 
+		type="text" > 
+	</form-input>	
+	<hr>
+
+	<button 
+	ng-hide="!addCustomerForm.$valid"
+	ng-click="save()" class="btn" type="submit"> Save </button>
+
+</form>

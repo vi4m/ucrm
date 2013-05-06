@@ -1,9 +1,9 @@
-<form name="addCustomerForm" ng-controller="AddCustomerCtrl">
+<form ng-submit="submit()" name="addCustomerForm" ng-controller="AddCustomerCtrl">
 	<legend>Add Customer</legend>
 	<span class="error" ng-show="addCustomerForm.input.$error.required"> Required </span><br>
 	<form-input model="name" label="First name" form-id="nameInput" type="text" > </form-input>	
-	<form-input model="lastname" label="Last name" form-id="nameInput" type="text" > </form-input>	
+	<form-input model="surname" label="Last name" form-id="nameInput" type="text" > </form-input>	
 	<form-input model="nip" label="NIP" type="text" > </form-input>	
 
-	<button class="btn" type="submit"> Save </button>
+	<button ng-click="save()" class="btn" type="submit"> Save </button>
 </form>

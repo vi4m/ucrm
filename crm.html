@@ -1,21 +1,25 @@
 <!doctype html>
-<html ng-app="project">
+<html ng-app="crm">
 <head>
 	<title>{{app_title}}</title>
 	<script src="/components/angular/angular.js"></script>
+	<script src="/components/angular-resource/angular-resource.js"></script>
 	<script src="/components/angular-bootstrap/ui-bootstrap.js"></script>
 
-	<script src="formmodel.js"></script>
-	<script src="project.js"></script>
-	<script src="mongolab.js"></script>
-
-	<script src="persistence.js"></script>
 	<script src="persistencejs/lib/persistence.js" type="application/javascript"></script>
 	<script src="persistencejs/lib/persistence.store.sql.js" type="application/javascript"></script>
 	<script src="persistencejs/lib/persistence.store.websql.js" type="application/javascript"></script>
+	<script src="persistencejs/lib/persistence.search.js" type="application/javascript"></script>
+
+	<script src="directives.js"></script>
+	<script src="crm.js"></script>
+	<script src="mongolab.js"></script>
+
+
+	<script src="models.js"></script>
 
 	<link 
-		href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" 
+		href="/bootstrap.min.css" 
 		rel="stylesheet" />
 
 </head>
@@ -31,11 +35,17 @@
 							<span class="icon-bar"></span>
 						</a>
 
-						<a class="brand" href="#">CRM</a>
+						<a class="brand" href="#">uCRM</a>
 
 						<div class="nav-collapse collapse">
-							<form class="navbar-search pull-left">
-								<input type="text" class="search-query" placeholder="Search">
+							<form ng-controller="QuickSearchCtrl" class="navbar-search pull-left">
+								<input 
+									ng-change="keypress()"
+									type="text" 
+									ng-model="search_text"
+									class="search-query" 
+									placeholder="Search">
+
 							</form>
 							<!-- .nav, .navbar-search, .navbar-form, etc -->
 						</div>
@@ -50,9 +60,10 @@
 					<li><a href="{{ item.href }}">{{ item.name }}</a>
 					</ul>
 				</div>
-				<div class="span10 well">
-					Body:
+				<div class="span10">
+					<h2>{{ section }}</h2>
 					<div ng-view> </div>	
+					
 				</div>
 			</div>
 		</div>
